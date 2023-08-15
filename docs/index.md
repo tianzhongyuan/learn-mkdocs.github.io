@@ -1,19 +1,253 @@
-# Welcome to MkDocs
+site name: SIMON TeST
+nav:
+ - first page: index.md
+ - test page: test.md
+# RDD Detailed Methods
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+*Flowcharts in this work were drewn using [draw.io](https://www.drawio.com/)*
 
-## Commands
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+## Section Index 
 
-## Project layout
+| |
+|:----|
+|[1 RDD and ChIA-PET data processing](#1-RDD-and-ChIA-PET-data-processing)|
+|[2 RNA-seq data processing](#2-RNA-seq-data-processing)|
+|[3 Peak correlation](#3-Peak-correlation)|
+|[4 Loop corelation](#4-Loop-corelation)|
+|[5 Peak distribution of chromatin states and gene body](#5-Peak-distribution-of-chromatin-states-and-gene-body)|
+|[6 Profiles of enrichment signal along chromosomes of mappable reads](#6-Profiles-of-enrichment-signal-along-chromosomes-of-mappable-reads)|
+|[7 roX2 mediated chromatin interaction networks of wild type and heat shock S2 cell](#7-roX2-mediated-chromatin-interaction-networks-of-wild-type-and-heat-shock-S2-cell)|
+|[8 Active and inactive domain defined from H3K27ac ChIP-seq data](#8-Active-and-inactive-domain-defined-from-H3K27ac-ChIP-seq-data)|
+|[9 Definition of roX2 enriched boots](#9-Definition-of-roX2-enriched-boots)|
+|[10 roX2 boots boundaries enrichment profiles of beaf, H3K27ac and H3K27me3 signals](#10-roX2-boots-boundaries-enrichment-profiles-of-beaf,-H3K27ac-and-H3K27me3-signals)|
+|[11 Features active/inactive domains and roX2 boots](#11-Features-active/inactive-domains-and-roX2-boots)|
+|[12 Domain to domain interactions displayed by heatmap](#12-Domain-to-domain-interactions-displayed-by-heatmap)|
+|[13 Tornado plots of peak region signal enrichment of roX2 RDD in wild type and heat shock S2 cells](#13-Tornado-plots-of-peak-region-signal-enrichment-of-roX2-RDD-in-wild-type-and-heat-shock-S2-cells)|
+|[14 Peak aggregation plot](#14-Peak-aggregation-plot)|
+|[15 Loop aggregation plot](#15-Loop-aggregation-plot)|
+|[16 Four types of roX2 associated genes](#16-Four-types-of-roX2-associated-genes)|
+|[17 Aggregation plots of four types of genes against various factors](#17-Aggregation-plots-of-four-types-of-genes-against-various-factors)|
+|[18 Gene expression of the 4 types of genes between S2 and Kc167 cells and within wilt-type heat shock and recoveryS2 cells](#18-Gene-expression-of-the-4-types-of-genes-between-S2-and-Kc167-cells-and-within-wilt-type-heat-shock-and-recoveryS2-cells)|
+|[19 Relationship between intra-gene and inter-gene](#19-Relationship-between-intra-gene-and-inter-gene)|
+|[20 Behaviors of the 24 boot-disappeared genes on intra-gene and inter-gene](#20-Behaviors-of-the-24-boot-disappeared-genes-on-intra-gene-and-inter-gene)|
+|[21 Gene expression in different cycles of Drosophila embryos](#21-Gene-expression-in-different-cycles-of-Drosophila-embryos)|
+|[Reference](#Reference)|
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
 
-## NICE
+
+## Figure Index
+
+|Figure|………………………………………………………………………………………………………………|Section|
+|:----|:----|:----|
+|Fig.1g|………………………………………………………………………………………………………………|[14](#14-Peak-aggregation-plot)|
+|Fig.1h|………………………………………………………………………………………………………………|[14](#14-Peak-aggregation-plot)|
+|Fig.1i|………………………………………………………………………………………………………………|[14](#14-Peak-aggregation-plot)|
+|Fig.1j|………………………………………………………………………………………………………………|[14](#14-Peak-aggregation-plot)|
+|Fig.2d|………………………………………………………………………………………………………………|[17](#17-Aggregation-plots-of-four-types-of-genes-against-various-factors)|
+|Fig.2e|………………………………………………………………………………………………………………|[18](#18-Gene-expression-of-the-4-types-of-genes-between-S2-and-Kc167-cells-and-within-wilt-type-heat-shock-and-recoveryS2-cells)|
+|Fig.3c|………………………………………………………………………………………………………………|[13](#13-Tornado-plots-of-peak-region-signal-enrichment-of-roX2-RDD-in-wild-type-and-heat-shock-S2-cells)|
+|Fig.3d|………………………………………………………………………………………………………………|[2](#2-RNA-seq-data-processing)|
+|Fig.3e|………………………………………………………………………………………………………………|[15](#15-Loop-aggregation-plot)|
+|Fig.3f|………………………………………………………………………………………………………………|[18](#18-Gene-expression-of-the-4-types-of-genes-between-S2-and-Kc167-cells-and-within-wilt-type-heat-shock-and-recoveryS2-cells)|
+|Fig.3g|………………………………………………………………………………………………………………|[19](#19-Relationship-between-intra-gene-and-inter-gene)|
+|Fig.4d|………………………………………………………………………………………………………………|[1](#1-RDD-and-ChIA-PET-data-processing)|
+|Fig.4e|………………………………………………………………………………………………………………|[11](#11-Features-active/inactive-domains-and-roX2-boots)|
+|Fig.4f|………………………………………………………………………………………………………………|[11](#11-Features-active/inactive-domains-and-roX2-boots)|
+|Fig.4g|………………………………………………………………………………………………………………|[11](#11-Features-active/inactive-domains-and-roX2-boots)|
+|Fig.4i|………………………………………………………………………………………………………………|[7](#7-roX2-mediated-chromatin-interaction-networks-of-wild-type-and-heat-shock-S2-cell)|
+|Fig.5d|………………………………………………………………………………………………………………|[12](#12-Domain-to-domain-interactions-displayed-by-heatmap)|
+|Fig.S1b|………………………………………………………………………………………………………………|[3](#3-Peak-correlation);[4](#4-Loop-corelation)|
+|Fig.S1c|………………………………………………………………………………………………………………|[3](#3-Peak-correlation);[4](#4-Loop-corelation)|
+|Fig.S1e|………………………………………………………………………………………………………………|[6](#6-Profiles-of-enrichment-signal-along-chromosomes-of-mappable-reads)|
+|Fig.S1f|………………………………………………………………………………………………………………|[6](#6-Profiles-of-enrichment-signal-along-chromosomes-of-mappable-reads)|
+|Fig.S1h|………………………………………………………………………………………………………………|[3](#3-Peak-correlation)|
+|Fig.S2a|………………………………………………………………………………………………………………|[5](#5-Peak-distribution-of-chromatin-states-and-gene-body)|
+|Fig.S4c|………………………………………………………………………………………………………………|[17](#17-Aggregation-plots-of-four-types-of-genes-against-various-factors)|
+|Fig.S4e|………………………………………………………………………………………………………………|[15](#15-Loop-aggregation-plot)|
+|Fig.S4f|………………………………………………………………………………………………………………|[21](#21-Gene-expression-in-different-cycles-of-Drosophila-embryos)|
+|Fig.S4g|………………………………………………………………………………………………………………|[19](#19-Relationship-between-intra-gene-and-inter-gene)|
+|Fig.S6a|………………………………………………………………………………………………………………|[11](#11-Features-active/inactive-domains-and-roX2-boots)|
+|Fig.S6b|………………………………………………………………………………………………………………|[11](#11-Features-active/inactive-domains-and-roX2-boots)|
+|Fig.S6c|………………………………………………………………………………………………………………|[12](#12-Domain-to-domain-interactions-displayed-by-heatmap)|
+|Fig.S6e|………………………………………………………………………………………………………………|[7](#7-roX2-mediated-chromatin-interaction-networks-of-wild-type-and-heat-shock-S2-cell)|
+|Fig.S6k|………………………………………………………………………………………………………………|[12](#12-Domain-to-domain-interactions-displayed-by-heatmap)|
+|Fig.S7c|………………………………………………………………………………………………………………|[12](#12-Domain-to-domain-interactions-displayed-by-heatmap)|
+
+
+
+
+## [1 RDD and ChIA-PET data processing](#Section-Index)
+
+In this study, RDD and ChIA-PET data were processed using [ChIA-PIPE](https://github.com/TheJacksonLaboratory/ChIA-PIPE) pipeline(Lee et al. 2020), configured with ‘3,000 bp self-ligation’, ‘500 bp tag-extension’ and ‘dm3 reference genome’ for Drosophila melanogaster. To further analyze precise chromatin interaction, ‘50 bp tag-extension’ was also applied. For each libraries, RNA and Protein binding coverage (.bedgraph) and peaks (.peaks), chromatin interaction data for loops (.clusters) and for  2D heatmap (.hic) were determined, and displayed via [BASIC Browse](https://github.com/TheJacksonLaboratory/basic-browser)r (Lee et al. 2020) and [Juicebox](https://github.com/aidenlab/Juicebox)(Durand et al. 2016). All steps of this pipeline are monitored and reflected in a quality control table.
+
+
+![2 1_RDD_PIPELINE-Page-1 drawio](pic/8f4f0105-472a-420c-a592-fc4630ac865d.png)
+
+
+
+## [2 RNA-seq data processing](#Section-Index)
+
+After RNA-seq raw FASTQ files mapped to dm3 genome using [STAR](https://github.com/alexdobin/STAR) (v2.7.9a)(Dobin et al. 2013) with paraters of ‘--outFilterType BySJout  --outFilterMultimapNmax 20  --alignSJoverhangMin 8  --alignSJDBoverhangMin 1  --outFilterMismatchNmax 999  --outFilterMismatchNoverReadLmax 0.04  --alignIntronMin 20  --alignIntronMax 1000000  --alignMatesGapMax 1000000’, subsequently a mappable reads BAM file is available. Next by utilizing ‘rsem-calculate-expression’ script of [RSEM](https://github.com/deweylab/RSEM) (v1.3.1)(B. Li and Dewey 2011) to estimate gene expression levels, resulted in a gene expression list. Strand specific RNA-seq gene expression tracks for visualization were generate by selecting the second read in pair using [SAMtools](http://samtools.sourceforge.net) (v0.1.19)(H. Li et al. 2009). 
+
+![2 1_RDD_PIPELINE-Page-2 drawio](https://github.com/tianzhongyuan/mkdocs/blob/main/docs/pic/9f5fef79-8874-4377-b51d-5ed81c6b0601)
+
+
+## [3 Peak correlation](#Section-Index)
+*(left panel,Fig.S1b,c,h)*
+*[Script](https://github.com/tianzhongyuan/mkdocs/tree/main/3.Peak_correlation_script)*
+
+To evaluate reproducibility of peaks between two roX2 RDD replicates, two 7SK RDD replicates, and roX2 RDD with roX2 ChIRP-seq, first, we merged two replication peaks to obtain merged_peaks. Second, the read counts of each RDD replicates at merged_peaks were determined using ‘multicov’ command of [BEDTools](https://bedtools.readthedocs.io/en/latest) (v2.29.2)(Quinlan and Hall 2010), and followed by RPM computing through count of uniquely mappable reads. Finally, the scatter plot , the linear regression line and the two-sided Pearson correlation coefficient are performed in R language using ‘geom_point’ and ‘geom_smooth’ function of ggplot2 package (v3.4.0)(Wickham 2009) and ‘cor.test’ function of stats package (v 4.1.1). The convergence and correlation coefficient of the plots, can reflect the repeatability of the two RDD replicates.
+
+<img width="1834" alt="image" src="/docs/pic/ce6c3069-e994-489e-aac5-cc5300403593">
+
+
+## [4 Loop corelation](#Section-Index)
+*(right panel,Fig.S1b,c)*
+*[Script](/4.Loop_corelation_script)*
+
+To evaluate reproducibility of RDD loops, first, we obtained merged_anchors (roX2 RDD of 31,639, 7SK RDD of 40,357) after selecting loops in the 6 main chromosomes (chr2L, chr2R, chr3L, chr3R, chr4, and chrX) only, adjusting loops anchors by the summit point, extending 500 bp in both directions of the summit anchors, and merging extended anchors of the two replicates. Second, by replacing original loops anchors with the merged_anchors, we were able to compare the interactions between two replicates with the same set of genomic loci. Next, we combined loops from the same pairs of merged_anchors, added up their PET counts and followed by calculating RPM based on counts of uniquely mapped. Finally, the scatter plot , the linear regression line and the two-sided Pearson correlation coefficient are performed in R language using ‘geom_point’ and ‘geom_smooth’ function of ggplot2 package (v3.4.0)(Wickham 2009) and ‘cor.test’ function of stats package (v 4.1.1).  The convergence and correlation coefficient of the plots (roX2 r = 0.96, 7SK r = 0.89), can reflect the loop repeatability of the two RDD replicates.
+
+<img width="1788" alt="image" src="https://github.com/tianzhongyuan/mkdocs/blob/main/docs/pic/3a0ac8f9-f8c6-435b-8352-cb2b79f6fbeb">
+
+## [5 Peak distribution of chromatin states and gene body](#Section-Index)
+*(Fig.S2a,b)*
+*[Script](https://github.com/tianzhongyuan/mkdocs/tree/main/5.Peak-distribution-of-chromatin-states-and-gene-body.script)*
+
+Qualified peaks from roX2 and 7SK RDD and RNAPII ChIA-PET libraries are filtered by -log10(Pvalue) >= 5 and selected by different percentile of summit pileup value: 1%, 5%, 10%, 15%, 20%, 25%, and 100%. The summit points of these peaks datasets are assigned to the 9 chromatin states of Drosophila Melanogaster(Kharchenko et al. 2011) using ‘intersect’ function of [BEDTools](https://bedtools.readthedocs.io/en/latest) (v2.29.2)(Quinlan and Hall 2010), and annotated to dm3 gene body using ‘annotatePeaks.pl’ command of HOMER (v4.10)(Heinz et al. 2010). Finally ‘geom_bar’ function of R package ggplot2 (v3.4.0)(Wickham 2009) were used to plot bar charts. Pare wised two-sided Pearson correlation tests with the same factors are performed in using ‘ggpair’ function of GGaly package (v2.1.2) in R.
+
+<img width="1753" alt="image" src="https://github.com/tianzhongyuan/mkdocs/blob/main/docs/pic/9c91ba07-5f6e-422a-9cfd-a92a5d70cee7">
+
+
+## [6 Profiles of enrichment signal along chromosomes of mappable reads](#Section-Index)
+*(Fig.S1e,f)*
+*[6-1 Sinal_Enrich_Script](https://github.com/tianzhongyuan/mkdocs/tree/main/6-1.enichment_of_reads_along_chrom.script)*
+
+(2.6_D20_D21_D21B)
+For binding signal enrichment,  first the 6 main chromosomes of dm3 (chr2L, chr2R, chr3L, chr3R, chr4 and chrX) are binned by 10 kb/bin length using ‘makewindows’ function of BEDTools (v2.29.2)(Quinlan and Hall 2010), and followed by mapped with uniquely mapped reads from BAMs of roX2 RDD, 7SK RDD, and RNAPII ChIA-PET (GSE28180.SRR365000) using ‘multicov’ function of BEDTools (v2.29.2)(Quinlan and Hall 2010), finally RPM are calculated. For interaction signal enrichment, first anchors from the loops of the 6 main chromosomes and PET count >= 3 are selected, and mapped to the 6 main chromosomes to generate genome coverage of PET count using ‘genomecov’ function of BEDTools (v2.29.2)(Quinlan and Hall 2010).  The chromosome-wise binding peaks and interaction anchors enrichment were plotted using ‘geom_step’ function of R package ggplot2 (v3.4.0)(Wickham 2009).
+<img width="1802" alt="image" src="https://github.com/tianzhongyuan/mkdocs/blob/main/docs/pic/1cd31b27-d39d-46e7-bc3e-4e63c546a11d">
+
+
+## [7 roX2 mediated chromatin interaction networks of wild type and heat shock S2 cell](#Section-Index)
+*(Fig.4i)*
+
+First, we selected qualified peaks (-log10(P-value) >= 5) of wild type and heat shock S2 cell RDD libraries from top 25 percentile of summit pileup value, which were then intersected with anchors of loops (PET count >= 2) using BEDTools (v2.29.2)(Quinlan and Hall 2010). Next, instead the anchors of the loops supported by the peaks on both sides with peak-ID, thereupon the loop files (bedpe format) are converted to peak-to-peak lists (P2P format, in the form of "peak_1, peak_2, PET_count_sum") by accumulating the PET counts of the shared loops. Finally, the P2P data (PET_count_sum >= 4) are imported in to Cytoscape (v3.9.1)(Shannon et al. 2003; Cline et al. 2007) to generate network views using default layout algorithms (Prefuse Force Directed Layout), in which node (peak) size and color are defined in 3 levels by degree (count of connected edges): small size/lightgreen color (2 <= degree <= 4), medium size/green color (5 <= degree < 10), large size/darkgreen color (degree >= 10). In this part, the wild type and heat shock S2 cell RDD loops were clustered with 50 bp tag-extension for more precise study.
+<img width="1784" alt="image" src="https://github.com/tianzhongyuan/mkdocs/blob/main/docs/pic/f236b86d-b929-4398-b633-558da9af1b9b">
+
+## [8 Active and inactive domain defined from H3K27ac ChIP-seq data](#Section-Index)
+Firstly, Chromosome X of dm3 is divided to 4,484 bins by 5 kb/bin (dropping off the last small bin). Then, bins are hit by uniquely mapped reads of H3K27ac ChIP-seq data (SRR585051), followed by standardization with ‘scale’ function of package base (v4.2.1) in R (v4.2.1). Next, find the turning points where the standardized values turning from “+” to “-” and vice versa.  The upstream 1 bin and the downstream 1 bin are considered turning regions (turning point ± 5 kb).  Further, each turning region is divided into 200 bins (50 bp/bin), which are then hit by H3K27ac ChIP-seq data and standardized. After connecting all “-” value bins, valley regions are obtained (ignored if “-” length less than 10 bins). The boundary of the longest valley region in a turning region is considered as the correspondent detail boundary (50 bp precise), after modified 5 not ideal boundaries manually. Finally, A “+--…--+”  type of region is defined as an active domain, as well as a “-++⋯++-”  type of region is defined as an inactive domain. Totally we called 347 active domains and 356 inactive domains in this work, and their most frequent length are 111 kb and 344 kb respectively. 
+<img width="1787" alt="image" src="https://github.com/tianzhongyuan/mkdocs/blob/main/docs/pic/7a16393f-2361-4899-ba94-b75f1c535bf6">
+
+## [9 Definition of roX2 enriched boots](#Section-Index)
+For roX2 RDD libraries of wild type and heat shock S2 cells: Firstly, by selecting peaks of -log10(Pvalue) >= 5 and top 25 percentiles summit pileup value, qualified peaks are obtained. Secondly, by extending 20 kb from both sides of the summit, extend-peaks are obtained. Thirdly, by equally divided extend peaks into 80 bins (500 bp/bin), binned-peaks are obtained. Next, bins of binned-peaks are mapped by their coverage signals (BAM files). Continuously, values of mapped bins are standardized by function Z=((X-μ))⁄σ, where Z is the standardized value, X is the original value, μ is the mean and σ is the standard deviation. Then, by connecting bins of plus value within 3 kb, pre-boots regions are obtained. Finally, by merging overlapped pre-boots, boots are achieved. Totally we called 245 roX2 boots using roX2 RDD data in this work, and its most frequent length is 24 kb. 
+<img width="1775" alt="image" src="https://github.com/tianzhongyuan/mkdocs/blob/main/docs/pic/e95d0dc4-f46c-4c02-a58e-d36e00a8c279">
+
+## [10 roX2 boots boundaries enrichment profiles of beaf, H3K27ac and H3K27me3 signals](#Section-Index)
+*(Fig.4d)*
+
+To discovery factors enrichment in the boundaries of roX2 boots (described in [2.9] part), first separate the two boot boundaries, each extending 2.5 kb on both sides, and then divide equally into 100 bins. Then bins are hit by factor ChIP-seq signals from beaf (modENCODE), H3K27ac (SRR585051) and H3K27me3 (SRR585053) using BEDTools (v2.29.2)(Quinlan and Hall 2010), followed by calculating RPKM values. Subsequently, boot boundary matrix is created by rows (boots, sorted by sum of RPKM value within the boot) and columns (bins, in coordinate order). Finally, import the matrixes into R to generate tornado plots using ‘geom_tile’ function, and density curves by ‘geom_smooth’ function with a ’gam’ method of package ggplot2 (v3.4.0)(Wickham 2009).
+<img width="1791" alt="image" src="https://github.com/tianzhongyuan/mkdocs/blob/main/docs/pic/2d5fdbb0-d19d-43ec-805e-73c81b2b0e56">
+
+## [11 Features active/inactive domains and roX2 boots](#Section-Index)
+*(Fig.4e-g;Fig.S6a)*
+
+(i) The H3K27ac binding affinity in active and inactive domains is calculated by the ChIP-seq uniquely mapped reads hit and displayed as a boxplot, by R package ggplot2 (v3.4.0)(Wickham 2009) with a two-sided Wilcoxon-Mann-Whitney test(Bauer 1972) using wilcox.test function of R package stats (v 4.1.1). (ii) Active domains with/without roX2 boots, as well as roX2 boots within/without active domains, are shown as pie charts by calculating the intersection between the two using Excel (v16.71). (iii) The roX2 boot count for each active domain distribution curve is displayed as a density plot, and each data point of the curve reflects its frequency of occurrence. (iv) For both wild type and heat shock roX2 RDD libraries, by mapping anchors of loops into roX2 boots of active domain and counting unique loop and PET count sum per domain, distribution curves of loop count/roX2 boots of active domain and PET count/roX2 boots of active domain are achieved as density plots. Density plot is drawn by geom_density function of R package ggplot2 (v3.4.0)(Wickham 2009).
+<img width="1734" alt="image" src="https://github.com/tianzhongyuan/mkdocs/blob/main/docs/pic/4551dcb8-d499-4ac0-9abf-33bf7bee642e">
+
+## [12 Domain to domain interactions displayed by heatmap](#Section-Index)
+*(Fig.5d;Fig.S6c; Fig.S7c)* 
+
+(P03D35_NEW_RAD.NAD.IAD.INTERACTION_MATRIX)
+According to relationship between roX2 boots and active/inactive domains, domains can be further classed into 3 categories: inactive domains (INDs), active domains with roX2 boots (RADs), and active domains without roX2 boots (NADs). First step, each anchors of loops from libraries of Hi-C (GSM1690083n84C) RNAPII ChIA-PET, and roX2 wild-type, roX2 heat shock, 7SK RDD were adjust to its largest pileup value position with its anchor region, using ‘adjust_loop_anchor_using_bam.py’ script of ChIA-PIPE pipeline(Lee et al. 2020). (iii) Second step, by assigning each adjusted-anchor to the 3 types of domains, the loops were classed into RAD (RAD-RAD), NAD (NAD-NAD) and IND (IND-IND). After adding up PET counts between two domains of a pair, matrixes of domain-to-domain interaction are built up and displayed as 2D heatmap by R package pheatmap (1.0.12). And loops of both anchors within the same domain and different domains are colored dense and light in the scatter plots, using R package ggplot2 (v3.4.0)(Wickham 2009). In addition, the Hi-C and roX2 RAD contact maps were plotted as domain–domain contact loops, and the Pearson correlation coefficient between PET counts at the midpoint of loops were calculated (Figure S6K). 
+
+<img width="1734" alt="image" src="https://github.com/tianzhongyuan/mkdocs/blob/main/docs/pic/ace29e4d-1e36-4790-a42c-1d4c615e1ddb">
+
+![image](https://github.com/tianzhongyuan/mkdocs/blob/main/docs/pic/cdc0de7c-74b3-4151-9bdf-9745e1bc49f6)
+
+## [13 Tornado plots of peak region signal enrichment of roX2 RDD in wild type and heat shock S2 cells](#Section-Index)
+*(Fig.3c)*
+
+Firstly, select peaks of chromosome X from the top 25 percentile of roX2 RDD qualified peaks (-log10(Pvalue) >= 5). Next, these 1,056 selected peaks are extend 2.5 kb on both sides from its summit point , and followed by splitting the extended regions to 50 bins using ‘makewindows’ function of BEDTools (v2.29.2)(Quinlan and Hall 2010). Then the bins are hit by uniquely mapped reads from BAMs of wild type and heat shock roX2 RDD libraries using ‘multicov’ function of BEDTools (v2.29.2)(Quinlan and Hall 2010). Finally, RPKM are computed to construct a matrix of rows (peaks, sorted by pileup sums) and columns (bins, in ascent order)  to display a tornado plot to reflect signal enrichment using ‘geom_step’ function of R package ggplot2 (v3.4.0)(Wickham 2009).
+<img width="1726" alt="image" src="https://github.com/tianzhongyuan/mkdocs/blob/main/docs/pic/658792a0-420b-4372-8fe1-350a28b3c946">
+
+## [14 Peak aggregation plot](#Section-Index)
+*(Fig.1g,h)*
+
+Firstly, all gene isoforms of dm3 refGene (37,634) was downloaded from Table Browser tools (https://genome.ucsc.edu/cgi-bin/hgTables) of UCSC Genome Browser (Kent et al., n.d.; Dreszer et al. 2012),  then the isoforms belonging to a same gene and owning a same coordinate were merged to one ‘merged-isoform’ (30,403 in total). Secondly, toward the roX2 RDD and 7SK RDD, we picked high confident peaks (205 of roX2 in chromosome X only, 804 of 7SK) from the top part (10% for roX2, 5% for 7SK, according to pileup value rank) of the qualified (-log10(P) >= 5) peaks (5,820 of roX2, 16,499 of 7SK). Thirdly, these high confident peaks were extended 100 bp to both directions from the summit point, to filter the merged-isoforms getting ‘enriched-merged-isoform’ (477 for roX2, 1,236 for 7SK). The enriched-merged-isoforms, togethering with the 250 control-isoforms randomly selected from autosome, were extended 50 percent of the isoform length on both sides, followed by dividing to 41 bins and hit by uniquely mapped reads of roX2 and 7SK RDD libraries, and RNAPII ChIA-PET library (P2PETsCE50). After calculating the RPKM and manually removing an abnormal peak, the average RPKM value of each bin is obtained from all peaks and the aggregation curve is drawn by R package ggplot2 (v3.4.0)(Wickham 2009). In this part, ‘makewindows’ and ‘multicov’ functions of BEDTools (v2.29.2)(Quinlan and Hall 2010) were applied for bin making and signal hitting.
+<img width="1579" alt="image" src="https://github.com/tianzhongyuan/mkdocs/blob/main/docs/pic/c3d754e9-3407-423a-96c9-3839a80c1cc3">
+
+## [15 Loop aggregation plot](#Section-Index)
+*(Fig.1i,j;Fig.3e;Fig.S4e)*
+In this work following strategies were employed to generate isoforms specially for loop aggregation analysis, called ‘loop-aggr-isoforms’. Firstly, loop-aggr-isoforms for roX2 RDD were acquired via replacing the TES of the ‘roX2-enriched-merged-isoform’ (from [2.14]) by summit point of the roX2 peak, and then same TSS-TES isoforms were combined to generate 361 unique ‘roX2-enriched-pyseudo-isoforms’. loop-aggr-isoforms for 7SK RDD were directly used the 1,236 ‘7SK-enriched-merged-isoform’ (from [2.14]). 
+Secondly, loop-aggr-isoforms were divided into 45 bins by following method: (i) The isoforms are divided to bins, by means of making 25 bins with extending half bin length on both sides. In detail: Step-1, a half-bin-size is the ceil integer obtained by dividing a gene body into 48 bins; Step-2, extend a half-bin-size from both TSS and TES of a gene body; Step-3, from the extended TSS locus, count 12 bins by a full-bin-size (double half-bin-size) towards the gene body (bin-1 to bin-12); Step-4, from the extended TES locus, count 12 bins by a full-bin-size towards the gene body (bin-25 to bin-14); Step-5, the region between bin-12 and bin-14 is considered as bin-13, which can be seen as an cushion bin to tolerant the non-divisible part of ceil integer of half-bin-size. (ii) Extend 1.5 kb on both sides of the extend gene body, and make 10 bins equally in both extension parts (150 bp/bin). So far, totally 45 bins are obtained for loop aggregation.  
+Thirdly, create bin-bin pairs in each loop-aggr-isoforms after a PET count threshold, and overlap with both anchors of loops of   RDD or ChIA-PET libraries, to count sums of PET count of loops to generate a matrix of bin-bin with PET-count-sum.
+Finally, after calculating the RPKM, the average RPKM value of each bin-bin pairs is obtained to draw the interaction aggregation plots using R package ggplot2 (v3.4.0)(Wickham 2009).
+<img width="1683" alt="image" src="https://github.com/tianzhongyuan/mkdocs/blob/main/docs/pic/8d7d393b-3d5c-4f7d-9ca8-9620e0453320">
+
+## [16 Four types of roX2 associated genes](#Section-Index)
+
+*(D06_GENE/SUB04.multiFactor_hit_roX2IntraInterNonTargetGene/371NON/ 371NON.CTNN)*
+Intra-genes are roX2 directly binding genes in chromosome X; inter-genes are RNAPII enriched genes in chromosome X have loops connected with intra-gene; non-target-genes are non-roX2 targeted but RNAPII enriched genes in chromosome X; and control-genes are the random selected RNAPII enriched genes not in chromosome X. (i) Intra-genes: Firstly, the 477 roX2-enriched merged-genes are filtered to get 455 roX2 intra-genes, that roX2 summit not in their TSS region (TSS ± 250 bp).  (ii) Inter-genes:  Firstly, select 455 isoforms that summit roX2 binding peaks are not at TSS region (±250 bp) from the 477 intra-genes to generate 197 union-isoforms for each gene by merging all the isoforms.  Secondly, intersect the union-isoforms with anchors of roX2 RDD loops. In this way, the selected loops are annotated by one side anchor overlapped with intra-genes, and the other side anchor. Next, 104 unique genes are selected as inter-genes, if its TSS point (1 pb) falls into the other side anchors. (iii) Non-targeted-genes: Firstly, the total 8,589 peaks of RNAPII ChIA-PET library are filtered by -log10(P) >= 5 to get 8,504 qualified peaks, and the total 5,820 peaks of roX2 RDD library are filtered by -log10(P) >= 5 to get 5,721 qualified peaks. Next, by selecting dm3 isoforms’ TSS point (1 pb) with the summit extension areas (extend ± 250 bp) of the 1,371 RNAPII qualified peaks in chromosome X, and un-selecting with the summit extension areas (extend ± 250 bp) of the 2,010 roX2 qualified peaks in chromosome X, total 402 roX2 non-targeted-genes are obtained.  (iv) Control-genes: Firstly, Using 8,504 RNAPII qualified peaks intersect with dm3 gene bodies located in autosomes, total 6,800 RNAPII targeted genes with 15,863 isoforms are achieved using intersect function of BEDTools (v2.29.2)(Quinlan and Hall 2010). Then randomly down sampling to 500 isoforms and control-genes achieved using sample function of R package base (v4.1.1). 
+<img width="2237" alt="image" src="https://github.com/tianzhongyuan/mkdocs/blob/main/docs/pic/44ab52a1-ca26-4ea4-a0d0-152986c63485">
+
+## [17 Aggregation plots of four types of genes against various factors](#Section-Index)
+*(Fig.2d;Fig.S4d)*
+
+Firstly, the four types of roX2 associated genes from [2.16] (intra-genes, inter-genes, non-targeted-genes, control-genes) are divided to 41 bins by ‘makewindows’ function of BEDTools (v2.29.2)(Quinlan and Hall 2010), after extended 50 percent of the isoform length on both sides. Then the bins are hit by uniquely mapped reads of various libraries using ‘multicov’ function of BEDTools (v2.29.2)(Quinlan and Hall 2010). After calculating the RPKM, the average RPKM value of each bin is obtained from all peaks and the aggregation curve is drawn by R package ggplot2 (v3.4.0)(Wickham 2009). The S2 cells libraries include: RNAPII ChIA-PET (P2PETsC); RDD data of roX2 (rDS023DE50) and 7SK (rDS022DE50); ChIP-seq data of H3K27ac (SRR585051), H3K27me3 (SRR585053), H4K16ac (SRR495376), msl1 (SRR495366), msl2 (SRR495368), msl3 (SRR495370), mof (SRR495372), mle (SRR495374) and also include Kc167 library of RNAPII ChIA-PET (GSM2362846.SRR4457849). 
+<img width="2214" alt="image" src="https://github.com/tianzhongyuan/mkdocs/blob/main/docs/pic/04fd5365-fefb-4831-80f4-f3b25a677bcd">
+
+
+## [18 Gene expression of the 4 types of genes between S2 and Kc167 cells and within wilt-type heat shock and recoveryS2 cells](#Section-Index)
+*(Fig.2e;Fig.3f)*
+(i) The gene expression FPKM values of wilt-type, heat shock and recoveryS2 cell, in ‘genes.reaults’ tables out of the RSEM (v1.3.1)(B. Li and Dewey 2011) tool in the RNA-seq pipeline, are used to draw boxplots respecting the 4 types of genes: intra-gene, inter-gene, non-target-gene and control-gene from [2.16]. (ii) The RPKM of uniquely mapped reads of total RNA-seq of Kc167 (SRR1197456) and S2 (SRR1197280) libraries are used for drawing their boxplots of gene express levels respectively, based on the 4 types of genes. 
+    Two-sided multi-comparison Kruskal-Wallis test for genes is performed in each plots using ‘stat_compare_means’ function of R package ggpubr (v0.5.0). The middle line of a boxplot denotes median; box boundary encloses interquartile range (IQR); and whiskers denote 1.5× IQR, draw by R package ggplot2 (v3.4.0)(Wickham 2009). 
+<img width="1815" alt="image" src="https://github.com/tianzhongyuan/mkdocs/blob/main/docs/pic/93c50a18-a17c-43b5-9bd0-4f35fc29249b">
+
+## [19 Relationship between intra-gene and inter-gene](#Section-Index)
+*(Fig.3g;Fig.S4e)*
+
+To study the behaviors of roX2 directly binding intra-genes and their connected inter-genes via one-jump roX2 RDD loops (inter-gene-loops). Firstly, the promoter regions of the intra-genes and inter-genes that inter-gene-loops connected, are defined by 1 kb extensions on both upper- and down-stream of the TSS; thus, the reformed loops that constructed by intra-gene-promoter and inter-gene-promoter are called mother-loops. Next, performs ‘pairtopair’ function of BEDTools (v2.29.2)(Quinlan and Hall 2010)between each pairs of mother-loop with loops from data RNAPII ChIA-PET of wild-type, heat shock and recoveryof Drosophila S2 cell, to get intersected loops of both ends overlapped. Finally, summing up all PET counts of loops overlapping with the same mother-loop as the mother-loop’s PET count, and followed by calculating RPKM value by dividing total PET count of the data. The PET count RPKM of mother-loops of the 3 types data are plotted as boxplots, with two-sided t-test in between each two using ‘t.test’ function of R package stats (v 4.1.1). Also, performs ‘pairtopair’ function of BEDTools (v2.29.2)(Quinlan and Hall 2010)between each pairs of mother-loop with loops from data RNAPII ChIA-PET of S2 cell (SRR1197280) and Kc167 cell (SRR1197456), and draw violin plots to depict their intensities, with Wilcoxon-Mann-Whitney test(Bauer 1972) using ‘wilcox.test’ function of R package stats (v4.1.1).
+<img width="1771" alt="image" src="https://github.com/tianzhongyuan/mkdocs/blob/main/docs/pic/555ef3bd-ba69-4e26-8cc2-cb01b844cebe">
+
+## [20 Behaviors of the 24 boot-disappeared genes on intra-gene and inter-gene](#Section-Index)
+*(Fig.3d)*
+
+To detected the roX2-boot performance in wild type and heat shock cells, we manually select 24 genes whose boot structure disappeared after heat stress via observing BASIC browser. Then the 24 boot-disappeared genes were used to filter the 423 intra-genes, total we got 19 boot-disappeared intra-genes and 17 boot-disappeared intra-genes contacted inter-genes. Finally, the two groups of genes were binning, hitting, calculating RPKM, and aggregating to draw scatter plots of their signals distributed on gene body respectively, using uniquely mapped reads from wild type and heat shock S2 RDD libraries.
+<img width="1811" alt="image" src="https://github.com/tianzhongyuan/mkdocs/blob/main/docs/pic/f490dfe2-8788-4bbc-9e25-23084ced1231">
+
+## [21 Gene expression in different cycles of Drosophila embryos](#Section-Index)
+*(Fig.S4F)*
+
+We downloaded gene expression data for the 10th, 11th, 12th, 13th, 14A, 14B, 14C, and 14D cycle RNA-seq of Drosophila male embryos from GSE25180 (see Table S1 for details), and then selected several genes with similar tendencies to roX2 to draw the heatmap (Figure S4F).
+<img width="1657" alt="image" src="https://github.com/tianzhongyuan/mkdocs/blob/main/docs/pic/630c76d0-47ba-4bc8-8776-a30fea688047">
+
+## [Reference](#Section-Index)
+
+Bauer, David F. 1972. “Constructing Confidence Sets Using Rank Statistics.” Journal of the American Statistical Association 67: 687–90. https://doi.org/10.1080/01621459.1972.10481279.
+
+Cline, Melissa S, Michael Smoot, Ethan Cerami, Allan Kuchinsky, Nerius Landys, Chris Workman, Rowan Christmas, et al. 2007. “Integration of Biological Networks and Gene Expression Data Using Cytoscape.” Nature Protocols 2 (10): 2366–82. https://doi.org/10.1038/nprot.2007.324.
+
+Dobin, Alexander, Carrie A. Davis, Felix Schlesinger, Jorg Drenkow, Chris Zaleski, Sonali Jha, Philippe Batut, Mark Chaisson, and Thomas R. Gingeras. 2013. “STAR: Ultrafast Universal RNA-Seq Aligner.” Bioinformatics 29 (1): 15–21. https://doi.org/10.1093/bioinformatics/bts635.
+
+Dreszer, T. R., D. Karolchik, A. S. Zweig, A. S. Hinrichs, B. J. Raney, R. M. Kuhn, L. R. Meyer, et al. 2012. “The UCSC Genome Browser Database: Extensions and Updates 2011.” Nucleic Acids Research 40 (D1): D918–23. https://doi.org/10.1093/nar/gkr1055.
+
+Durand, Neva C., Muhammad S. Shamim, Ido Machol, Suhas S. P. Rao, Miriam H. Huntley, Eric S. Lander, and Erez Lieberman Aiden. 2016. “Juicer Provides a One-Click System for Analyzing Loop-Resolution Hi-C Experiments.” Cell Systems 3 (1): 95–98. https://doi.org/10.1016/j.cels.2016.07.002.
+
+Heinz, Sven, Christopher Benner, Nathanael Spann, Eric Bertolino, Yin C. Lin, Peter Laslo, Jason X. Cheng, Cornelis Murre, Harinder Singh, and Christopher K. Glass. 2010. “Simple Combinations of Lineage-Determining Transcription Factors Prime Cis-Regulatory Elements Required for Macrophage and B Cell Identities.” 
+Molecular Cell 38 (4): 576–89. https://doi.org/10.1016/j.molcel.2010.05.004.
+
+Kent, W James, Charles W Sugnet, Terrence S Furey, Krishna M Roskin, Tom H Pringle, Alan M Zahler, and David Haussler. n.d. “The Human Genome Browser at UCSC.” https://doi.org/10.1101/gr.229102
+
+Kharchenko, Peter V., Artyom A. Alekseyenko, Yuri B. Schwartz, Aki Minoda, Nicole C. Riddle, Jason Ernst, Peter J. Sabo, et al. 2011. “Comprehensive Analysis of the Chromatin Landscape in Drosophila Melanogaster.” Nature 471 (7339): 480–85. https://doi.org/10.1038/nature09725.
+
+Lee, Byoungkoo, Jiahui Wang, Liuyang Cai, Minji Kim, Sandeep Namburi, Harianto Tjong, Yuliang Feng, et al. 2020. “ChIA-PIPE: A Fully Automated Pipeline for Comprehensive ChIA-PET Data Analysis and Visualization.” Science Advances 6 (28): eaay2078. https://doi.org/10.1126/sciadv.aay2078.
+
+Li, Bo, and Colin N Dewey. 2011. “RSEM: Accurate Transcript Quantification from RNA-Seq Data with or without a Reference Genome.” https://doi.org/10.1186/1471-2105-12-323
+
+Li, Heng, Bob Handsaker, Alec Wysoker, Tim Fennell, Jue Ruan, Nils Homer, Gabor Marth, Goncalo Abecasis, Richard Durbin, and 1000 Genome Project Data Processing Subgroup. 2009. “The Sequence Alignment/Map Format and SAMtools.” Bioinformatics 25 (16): 2078–79. https://doi.org/10.1093/bioinformatics/btp352.
+
+Quinlan, Aaron R., and Ira M. Hall. 2010. “BEDTools: A Flexible Suite of Utilities for Comparing Genomic Features.” Bioinformatics 26 (6): 841–42. https://doi.org/10.1093/bioinformatics/btq033.
+
+Shannon, Paul, Andrew Markiel, Owen Ozier, Nitin S. Baliga, Jonathan T. Wang, Daniel Ramage, Nada Amin, Benno Schwikowski, and Trey Ideker. 2003. “Cytoscape: A Software Environment for Integrated Models of Biomolecular Interaction Networks.” Genome Research 13 (11): 2498–2504. https://doi.org/10.1101/gr.1239303.
+
+Wickham, Hadley. 2009. Ggplot2: Elegant Graphics for Data Analysis. Use R! New York: Springer. https://link.springer.com/book/10.1007/978-3-319-24277-4
